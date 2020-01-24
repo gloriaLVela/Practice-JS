@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function filterNumbers(dataArray) {
+        var newArray = [];
+        dataArray.forEach(function (data) {
+            if (typeof data === "number") {
+                newArray.push(data);
+            }
+
+        });
+
+        return newArray.sort(function (a, b) {
+            return a - b;
+        });
+    }
+
+    testArray = [4, 5, 9, 0, 12];
+    console.log(filterNumbers(testArray));
+
+    function fibonacci(number) {
+        if (number <= 1)
+            return 1;
+        if (number <= 2)
+            return 1;
+        return fibonacci(number - 1) + fibonacci(number - 2);
+
+    }
+
+
+    console.log(fibonacci(0));
+    console.log(fibonacci(3));
+    console.log(fibonacci(50));
+
+    var cache = {};
+
+    function fibonacciMemozation(number) {
+
+        if (number < 1)
+            return 0;
+
+        if (number <= 2)
+            return 1;
+
+        if (number in cache)
+            return cache[number];
+
+        var value = fibonacciMemozation(number- 1) + fibonacciMemozation(number - 2);
+
+        cache[number] = value;
+
+        return value;
+        console.log(value);
+    }
+
+    console.log(fibonacciMemozation(50));
+</script>
+</body>
+</html>
