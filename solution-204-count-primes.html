@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     *
+     * Count the number of prime numbers less than a non-negative number, n.
+
+     Example:
+
+     Input: 10
+     Output: 4
+     Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
+     */
+    function isPrime(num) {
+        if (num <= 3) {
+            return true;
+        }
+        for (let i = 2; i < num; i++) {
+            if (Math.trunc(num / i) == (num / i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function displayPrimes(num) {
+        let primeList = new Array();
+        for (let i = 1; i <= num ; i++){
+            if (isPrime(i)){
+                primeList.push(i);
+            }
+        }
+        console.log(primeList);
+    }
+
+    console.log(" 9 = " + displayPrimes(9));
+    console.log(" 11 = " + displayPrimes(11));
+    console.log(" 15 = " + displayPrimes(15));
+</script>
+</body>
+</html>
