@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert sort</title>
+</head>
+<body>
+<script>
+    function insertSort(arrayList) {
+        for (let i = 1; i < arrayList.length; i++) {
+            if (arrayList[i - 1] > arrayList[i]) {
+                for (let k = i; k > 0; k--) {
+                    if (arrayList[k-1] > arrayList[k]) {
+                        let temp = arrayList[k];
+                        arrayList[k] = arrayList[k - 1];
+                        arrayList[k - 1] = temp;
+
+                    }
+                }
+            }
+        }
+        return arrayList;
+    }
+
+    arrayList = [5, 1, 8, 9, 2, 4, 7];
+    arrayList = insertSort(arrayList);
+    console.log(arrayList);
+</script>
+</body>
+</html>
