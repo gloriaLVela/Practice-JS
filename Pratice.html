@@ -33,9 +33,9 @@
     }
 
 
-    console.log(fibonacci(0));
-    console.log(fibonacci(3));
-    console.log(fibonacci(50));
+    // console.log(fibonacci(0));
+    // console.log(fibonacci(3));
+    // console.log(fibonacci(50));
 
     var cache = {};
 
@@ -50,7 +50,7 @@
         if (number in cache)
             return cache[number];
 
-        var value = fibonacciMemozation(number- 1) + fibonacciMemozation(number - 2);
+        var value = fibonacciMemozation(number - 1) + fibonacciMemozation(number - 2);
 
         cache[number] = value;
 
@@ -58,7 +58,7 @@
         console.log(value);
     }
 
-    console.log(fibonacciMemozation(50));
+    console.log("7778742049 = " + fibonacciMemozation(49));
 </script>
 </body>
 </html>
