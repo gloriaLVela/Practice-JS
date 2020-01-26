@@ -17,30 +17,37 @@
      Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
      */
     function isPrime(num) {
-        if (num <= 3) {
-            return true;
-        }
-        for (let i = 2; i < num; i++) {
-            if (Math.trunc(num / i) == (num / i)) {
+        let i = 2;
+        while ( i * i <= num){
+            if ( num % i == 0){
                 return false;
             }
+            i++;
+
         }
         return true;
     }
 
     function displayPrimes(num) {
         let primeList = new Array();
-        for (let i = 1; i <= num ; i++){
+        if (num == 2 ){
+            return 1;
+        }
+        if (num == 3 ){
+            return 2;
+        }
+        for (let i = 2; i < num ; i++){
             if (isPrime(i)){
                 primeList.push(i);
             }
         }
         console.log(primeList);
+        return primeList.length;
     }
 
-    console.log(" 9 = " + displayPrimes(9));
-    console.log(" 11 = " + displayPrimes(11));
-    console.log(" 15 = " + displayPrimes(15));
+    // console.log(" 9 = " + displayPrimes(10));
+    // console.log(" 11 = " + displayPrimes(11));
+    console.log(" 499979 = " + displayPrimes(499979));
 </script>
 </body>
 </html>
