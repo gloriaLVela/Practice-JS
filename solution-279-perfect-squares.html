@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfect Square</title>
+</head>
+<body>
+<script>
+    function getSquare(a, b) {
+        return Math.pow(a, 2) + Math.pow(b, 2);
+    }
+
+    function calculateNumbers(num) {
+        let midPoint = Math.trunc(num / 2);
+        let num1 = midPoint;
+        let num2 = num - num1;
+        while (midPoint > 0) {
+            num1 = Math.trunc(Math.sqrt(midPoint));
+            num2 = Math.trunc(Math.sqrt(num - num1));
+            console.log(num1 + ", " + num2);
+            if (num == getSquare(num1, num2) ){
+                return "numbers found "+ num + " = " + num1 + ", " + num2;
+            }
+            midPoint--;
+        }
+        return "numbers not found for " + num;
+    }
+
+    console.log(calculateNumbers(13));
+    console.log(calculateNumbers(25));
+    console.log(calculateNumbers(12));
+
+    console.log(calculateNumbers(3000));
+
+    console.log(calculateNumbers(4000));
+</script>
+</body>
+</html>
