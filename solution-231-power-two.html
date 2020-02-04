@@ -8,6 +8,9 @@
 <script>
     function isPowerOfTwo (n) {
         var isPower = true;
+        if (n <= 0){
+            return false;
+        }
         if (n == 1) return true;
         let power = n;
         if (n%2 != 0){
