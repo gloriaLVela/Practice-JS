@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Power Two</title>
+</head>
+<body>
+<script>
+    function isPowerOfTwo (n) {
+        var isPower = true;
+        if (n == 1) return true;
+        let power = n;
+        if (n%2 != 0){
+            return false;
+        }
+        while (power > 1){
+            power /=2;
+        }
+        if (power != Math.trunc(power)) {
+            return false;
+        }
+
+        return true;
+
+    };
+
+
+</script>
+</body>
+</html>
