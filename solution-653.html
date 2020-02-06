@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Two Sum IV - Input as BST</title>
+</head>
+<body>
+<script>
+    /**
+     * Given a Binary Search Tree and a target number, return true if there exist two elements in the BST such that their sum is equal to the given target.
+     */
+
+    /**
+     * Definition for a binary tree node.
+     * function TreeNode(val) {
+     *     this.val = val;
+     *     this.left = this.right = null;
+     * }
+     */
+    /**
+     * @param {TreeNode} root
+     * @param {number} k
+     * @return {boolean}
+     */
+
+
+    function findValues(root, k, nodeValues) {
+
+        if (root == null) {
+            return false;
+        }
+        let testValue = k - root.val;
+        if (nodeValues.indexOf(testValue) >= 0) {
+            return true;
+        }
+
+        // console.log(nodeValues);
+        for (let i = 0; i < nodeValues.length; i++) {
+            if (nodeValues.indexOf(testValue) >= 0) {
+                return true;
+            }
+
+        }
+
+        nodeValues.push(root.val);
+        return findValues(root.left, k, nodeValues) || findValues(root.right, k, nodeValues);
+    }
+
+    var findTarget = function (root, k) {
+        let nodeValues = [];
+        return findValues(root, k, nodeValues);
+
+    };
+
+    // [5, 3, 6, 2, 4, null, 7]
+    // 9
+    //     [5, 3, 6, 2, 4, null, 7]
+    // 28
+    //     [1]
+    // 2
+    //     [2, 1, 3]
+    // 3
+    //     [2,0,3,-4,1]
+    // -1
+    //     [1, null, 2]
+    // 2
+    //     [1204,656,2017,595,1129,1543,4066,87,648,762,1171,1361,1717,2352,4751,1,308,null,null,738,941,null,null,1325,1455,1591,1847,2060,3590,4276,4815,null,61,163,432,709,null,893,1074,1267,null,1376,1532,null,1695,1755,1925,null,2246,3020,3686,4216,4463,4772,4961,32,null,null,281,321,570,null,null,836,null,993,1119,null,1292,null,1433,1484,null,1670,null,null,1807,1897,1989,2168,2292,2436,3103,3612,3960,4186,4255,4409,4687,4762,null,4868,5116,null,null,246,296,null,374,472,null,796,null,null,1021,1105,null,null,null,1411,1447,null,null,1605,null,1790,null,1871,null,1941,null,2125,2211,null,null,2424,2722,3066,3399,null,null,3880,4016,4159,null,null,null,4360,4429,4655,4726,null,null,null,4915,5026,5162,null,null,null,null,null,397,null,528,null,null,null,1054,null,null,null,null,null,null,null,null,null,null,null,null,null,null,2095,null,null,null,null,null,2539,2739,null,null,3357,3503,3755,3906,null,null,4118,null,4337,null,null,null,4515,null,4706,null,4908,null,5003,5076,null,null,null,null,null,null,null,null,null,null,2497,2679,null,2999,3298,3367,3459,3550,3703,3836,null,null,null,null,null,null,null,4590,null,null,null,null,null,null,null,null,2484,null,2575,null,2814,null,3194,null,null,null,null,3483,3521,null,null,3714,3807,3863,null,4602,null,null,null,2636,2794,2917,3161,3220,null,null,null,null,null,null,null,null,null,null,null,null,null,null,2763,null,2827,2949,null,3180,null,3233,null,null,null,null,null,null,null,null,null,3259]
+    // 194
+
+</script>
+
+</body>
+</html>
