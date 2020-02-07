@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TBig Sum</title>
+</head>
+<body>
+<script>
+    // Complete the aVeryBigSum function below.
+    function aVeryBigSum(ar) {
+
+        let res = "";
+        let currentDigit = 0;
+
+        let arB = ar.sort(function (a, b) {
+            return b - a
+        });
+        let maxNum = arB[0];
+
+        let numberSize = ("" + maxNum).length;
+
+        let div = 10;
+        let rem = 0;
+
+        console.log(" numberSize " + numberSize);
+
+        for (let j = 0; j < numberSize; j++) {
+            currentDigit = 0;
+            for (let i = 0; i < arB.length; i++) {
+
+                //
+                currentDigit = currentDigit + (arB[i] % div);
+                console.log('test ' + (arB[i] % div));
+                console.log(i + ' currentDigit ' + currentDigit);
+                arB[i] = Math.trunc(arB[i] /  10);
+                console.log('--- arB[' + i + '] ' + arB[i]);
+            }
+
+
+            if (rem > 0) {
+                currentDigit += rem;
+                rem = 0;
+            }
+
+
+            rem = Math.trunc( currentDigit / 10);
+
+            res = (currentDigit%10) + res;
+
+            console.log('****  res ' + res);
+        }
+        if (rem > 0){
+            res = rem + res;
+        }
+
+        return res;
+    };
+
+    let arrayNumbers = [1001458909, 1004570889, 1007019111, 1003302837, 1002514638, 1006431461, 1002575010, 1007514041, 1007548981, 1004402249];
+    console.log(aVeryBigSum(arrayNumbers));
+
+    //10047338126
+
+</script>
+</body>
+</html>
