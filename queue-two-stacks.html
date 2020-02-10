@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function processData(input) {
+        //Enter your code here
+        let currentQueue = [];
+        let arraySize = input.length;
+        let inputArray = input.split('\n');
+        for (let i = 1; i < inputArray.length; i++) {
+            let currentInput = inputArray[i].split(" ");
+            switch (parseInt(currentInput[0])) {
+                case 1:
+                    currentQueue.push(currentInput[1]);
+                    break;
+                case 2: currentQueue.splice(0, 1);
+                    break;
+                case 3: console.log(currentQueue[0]);
+                    break;
+            }
+        }
+    }
+
+    process.stdin.resume();
+    process.stdin.setEncoding("ascii");
+    _input = "";
+    process.stdin.on("data", function (input) {
+        _input += input;
+    });
+
+    process.stdin.on("end", function () {
+        processData(_input);
+    });
+    // 10
+    // 1 42
+    // 2
+    // 1 14
+    // 3
+    // 1 28
+    // 3
+    // 1 60
+    // 1 78
+    // 2
+    // 2
+    //
+
+</script>
+</body>
+</html>
